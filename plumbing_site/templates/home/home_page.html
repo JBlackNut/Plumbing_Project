@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title>洁具 -  Website</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}dist/css/bootstrap.min.css" type = "text/css"></link>
+    <script src="{{ STATIC_URL }}dist/js/jquery.js"></script>
+    <script src="{{ STATIC_URL }}dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+
+      @media(min-width: 980px){
+        body {
+            padding-top: 60px;
+          }
+        .linediv-l{
+         border-right: 1px white solid;
+          }
+        .linediv-r{
+         border-left: 1px white solid;
+          }
+      }
+
+      @media(max-width: 480px){
+        .copy{
+          padding: 2.5% 10%;
+        }
+        .linediv-l{
+        border-bottom: 1px white solid;
+        }
+        .linediv-r{
+        border-top: 1px white solid;
+        }
+      }
+
+      body{
+        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+        color: #D19D9D;
+      }
+      .heading, .subheading{
+        font-family: "Ubuntu", Helvetica, Arial, sans-serif;
+        text-align: center;
+      }
+      p.lead{
+        padding-top: 1.5%;
+        font-size: 24px;
+        line-height: 30px;
+      }
+      p{
+        font-size: 17px;
+        line-height: 24px;
+      }
+      .pitch{
+        padding: 2.5% 0%;
+      }
+      .order{
+        padding: 2% 0%;
+      }
+      .actions{
+        background-color: #343434;
+        padding: 3% 0%;
+        padding-top: 2.0%;
+        padding-bottom: 2.0%;
+      }
+      .statistics h3, .statistics p{
+        color: white;
+      }
+      .video, .thermometer, .order, .social, .statistics{
+        border: 0px dotted;
+        text-align: center;
+      }
+
+      .copy{
+        padding-top: 2.5%;
+        padding-bottom: 2.5%;
+        text-align: justify;
+      }
+      .asset{
+        padding: 2.5% 0%;
+      }
+      .footer{
+        color: #cccccc;
+        text-align: center;
+      }
+      .footer p{
+        font-size: 11px;
+      }
+      .footer a{
+        color: #ccccff;
+      }
+      ul
+      {
+        list-style-type: none;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        line-height: 0em;
+        text-align: center;
+      }
+      h3.ch{
+        margin: 1px;
+        margin-top: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
+      }
+      h5.en{
+        margin: 1px;
+        margin-bottom: 0px;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      form.navbar-search{
+        margin-top: 15px;
+        margin-left: 30px;
+      }
+      h6.copyright{
+        color: gray;
+        text-decoration:none;
+      }
+      nav.navbar{
+        margin: 0px;
+        padding: 0px;
+      }
+      .brand{
+        color: gray;
+        margin-left: 80px;
+        margin-right: 50px;
+        padding-top: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+      ul.navbar-nav{
+        color: gray;
+        display: inline;
+        text-align: right;
+        width: auto;
+      }
+      ul.nav-ch-en{
+        text-align: center;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        padding: 0px;
+      }
+      li.nav{
+        text-align: center;
+      }
+      form.form-inline{
+        padding-top: 20px;
+        padding-left: 30px;
+      }
+      .button-search{
+        padding-left: 5px;
+        padding-top: 20px;
+      }
+      .item{
+        width: 580px;
+        height: 520px;
+        margin-left: 0px;
+        padding: 0px;
+      }
+      .another-item{
+        width: auto;
+        height: 520px;
+        margin-left: 80px;
+        margin-right: 20px;
+      }
+      .row{
+        display: inline-block;
+        margin-right: 30px;
+        float: top;
+        text-align: center;
+        position: relative;
+      }
+      .inner-nav{
+        padding-top: 0px;
+        margin-left: 10px;
+        margin-top: 0px;
+      }
+      .panel-info{
+        width: 550px;
+      }
+      .dynamic-panel{
+        position: absolute;
+      }
+      .panel-framework{
+        height: 410px;
+      }
+      h4.new-title{
+        text-align: left;
+        margin-top: 25px;
+        margin-left: 0px;
+      }
+      .new-date{
+        text-align: right;
+        margin-right: 10px;
+      }
+      hr.horizon-devider{
+        text-align: center;
+        margin: 0px;
+        width: 90%;
+      }
+      .nothing_else{
+        color: gray;
+      }
+      h3.perspective{
+        text-align: left;
+        color: #76C4E6;
+      }
+      .well{
+        color: black;
+        width: 95%;
+      }
+      .perspective-name{
+        color: #080909;
+        text-align: right;
+      }
+      ul.nav{
+        color: #3BADDD;
+      }
+      .ch-product{
+        margin-bottom: 3px;
+        color: black;
+      }
+      .en-product{
+        margin-top: 0px;
+        color: black;
+      }
+      .ch-prod-info{
+        margin-bottom: 10px;
+      }
+      .en-prod-info{
+        margin-top: 5px;
+      }
+      .ch-prod-list{
+        display: inline-block;
+      }
+      .en-prod-list{
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    {% block nav %}
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+            <ul class="nav navbar-nav">
+
+                <li class="nav"><a>
+                  <h2 class = "brand">Bitstarter</h2>
+                  </a>
+                </li>
+
+                <!-- <li class = "divider-vertical"></li> -->
+                <li class="active nav">
+                  <a href="{% url 'product_exhibition.views.home_page' %}" class="nav_href">
+                    <ul class="nav-ch-en">
+                      <li>
+                        <h3 class= "ch">主页</h3>
+                        <h5 class= "en">Home</h5>
+                      </li>
+                    </ul>
+                  </a>
+                </li>
+
+                <li class="nav">
+                  <a href="{% url 'product_exhibition.views.perspective' %}">
+                    <ul class="nav-ch-en">
+                      <li>
+                        <h3 class= "ch">我们的观点</h3>
+                        <h5 class= "en">Our Perspective</h5>
+                      </li>
+                    </ul>
+                  </a>
+                </li>
+
+                <!-- <li class = "divider-vertical"></li> -->
+                <li class="nav">
+                  <a href="{% url 'product_exhibition.views.product_list' %}">
+                    <ul class="nav-ch-en">
+                      <li>
+                        <h3 class= "ch">产品列表</h3>
+                        <h5 class= "en">Production List</h5>
+                      </li>
+                    </ul>
+                  </a>
+                </li>
+
+                <!-- <li class = "divider-vertical"></li> -->
+                <li class="nav">
+                  <a href = "#">
+                      <ul class="nav-ch-en">
+                        <li>
+                          <h3 class= "ch">联系我们</h3>
+                          <h5 class= "en">Contact Us</h5>
+                        </li>
+                      </ul>
+                  </a>
+                </li>
+
+                <li class="nav">
+                  <form class="form-inline">
+                    <div class="form-group">
+                      
+                        <input type="text" class="form-control" placeholder="Search - 搜索">
+                      </div>
+                    </div>
+                  </form>
+                </li>
+                <li>
+                  <div class="col-md-5 button-search">
+                    <button type="button" class="btn btn-default"> 搜索 </button>
+                  </div>
+                </li>
+            </ul>
+      </nav>
+    {% endblock %}
+    <br></br>
+    {% block mainbody %}
+      <div class="another-item">
+
+        <div class="row">
+              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <img class="carousel-img" src="{{ STATIC_URL }}image/2013-03-31.jpg" alt="first image">
+                      <div class="carousel-caption">
+                      </div>
+                    </div>
+
+                    <div class="item">
+                      <img class="carousel-img" src="{{ STATIC_URL }}image/2013-06-01.jpg" alt="second image">
+                      <div class="carousel-caption">
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                  </a>
+              </div> <!-- carousel -->
+        </div> <!-- row -->
+
+        <div class="row dynamic-panel">
+          <div class="panel panel-info">
+
+            <div class="panel-heading">
+              <div class="row inner-nav">
+
+                <ul class="nav nav-tabs">
+                  <li class="active" data-toggle="tab"><a href="#news">新闻
+                    <h5 class="en">News</h5></a></li>
+                  <li><a href="#activity" data-toggle="tab">最新动态
+                    <h5 class="en">Activity Info</h5>
+                    </a></li>
+                  <li><a href="#cooperation" data-toggle="tab">合作公司
+                    <h5 class="en">Cooperation Info
+                    </h5></a></li>
+                </ul>
+
+              </div> <!-- row -->
+            </div> <!-- panel-heading -->
+
+            <div class="panel-framework tab-content">
+
+              <div class="tab-panel" id="news">
+                  {% if new_list %}
+                      <ul>
+                        {% for element in new_list %}
+                          <li class = "new-list">
+                            <h4 class="new-title"><a href="#">{{ element.title }}</a><h5 class="new-date">-{{ element.created_on }}</h5></h4>
+                          </li>
+                          <hr class = "horizon-devider"></hr>
+                        {% endfor %}
+                      </ul>
+                  {% else %}
+                    <p><h3 class="nothing_else">暂无内容</h3><p>
+                  {% endif %}
+              </div> <!-- tab-panel fade -->
+
+              <div class="table-panel fade" id="activity">
+                <p><h3 class="nothing_else">暂无内容</h3><p>
+              </div>
+
+              <div class="table-panel fade" id="cooperation">
+                <p><h3 class="nothing_else">暂无内容</h3><p>
+              </div>
+
+            </div> <!-- panel-framework -->
+
+          </div> <!-- panel panel-info -->
+        </div> <!-- row -->
+      </div> <!-- another item --> 
+    {% endblock %}
+  </body>
+  <footer>
+      <hr>
+      <center><p><h6 class="copyright">&copy; 版权所有权  Bitstarter Company 2013</h6></p></center>
+  </footer>
+</html>
