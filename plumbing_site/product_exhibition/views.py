@@ -14,6 +14,7 @@ def product_list(request):
 	if page == None: page = 1
 	if topic == None: topic = "None"
 	product_list = serializers.serialize("python", Production.objects.filter(product_category_en = Category.objects.filter(name_en = topic)))
+	print page
 	if len(product_list) == 0:	contacts = None
 	else:	
 		paginator = Paginator(product_list, 10)
@@ -24,10 +25,14 @@ def product_list(request):
 		except EmptyPage:
 	        # If page is out of range (e.g. 9999), deliver last page of results.
 			contacts = paginator.page(paginator.num_pages)
+		return render_to_response('home/product_list.html', context_instance = RequestContext(request, {
+				'objects': data,
+				'items_list': contacts.object_list,
+			}))
 	return render_to_response('home/product_list.html', context_instance = RequestContext(request, {
-			'objects': data,
-			'items_list': contacts,
-		}))
+				'objects': data,
+				'items_list': None,
+			}))
 
 def home_page(request):
 	"""

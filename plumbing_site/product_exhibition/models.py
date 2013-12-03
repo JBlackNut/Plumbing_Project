@@ -2,6 +2,24 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
+class Author(models.Model):
+	"""
+	Model for introducting and show in the contact part
+	"""
+	first_name 	= models.CharField(max_length = 20)
+	second_name = models.CharField(max_length = 20)
+	email 		= models.EmailField(max_length = 75)
+	address		= models.CharField(max_length = 50)
+	description = models.TextField()
+	profile_img = models.ImageField(upload_to = "pic_folder/", default = "pic_folder/default_image.jpg")
+	mobile_phone = models.CharField(max_length = 20)
+	telephone	= models.CharField(max_length = 20)
+	
+	def __unicode__(self):
+		"""
+		"""
+		return self.first_name + self.second_name
+
 class Elementary(models.Model):
 	"""
 	"""

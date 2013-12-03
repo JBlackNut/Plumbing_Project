@@ -110,11 +110,57 @@
         <div class = "col-xs-6 col-sm-9" id = "blog_list">
           {% if items_list %}
             {% for entry in items_list %}
-            <div class="row">
-              <div class="col-sm-6 col-md-3">
-                <img class="img-rounded img-responsive" src="/site_media/{{ entry.product_img.name }}">
+              <div class="product-container">
+                <div class="col-sm-8 col-md-4">
+                  <img style="border:1px solid black" class="img-rounded img-responsive product-img" src="/site_media/{{ entry.fields.product_img }}">
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <td class="success">
+                        <div class="chin">产品名称:</div>
+                        <div class="eng">Product Name:</div>
+                      </td>
+                      <td>
+                        <div class="ch-detail"><b>{{ entry.fields.product_name_ch }}</b></div>
+                        <div class="en-detail"><b>{{ entry.fields.product_name_en }}</b></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="success">
+                        <div class="chin">产品品牌:</div>
+                        <div class="eng">Product Brand:</div>
+                      </td>
+                      <td>
+                        <div class="ch-detail"><b>{{ entry.fields.product_brand_ch }}</b></div>
+                        <div class="en-detail"><b>{{ entry.fields.product_brand_en }}</b></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="success">
+                        <div class="chin">产品尺寸:</div>
+                        <div class="eng">Product Size:</div>
+                      </td>
+                      <td>
+                        <div class="ch-detail"><b>{{ entry.fields.product_size_ch }}</b></div>
+                        <div class="en-detail"><b>{{ entry.fields.product_size_en }}</b></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="success">
+                        <div class="chin">产品特性:</div>
+                        <div class="eng">Product Characteristic:</div>
+                      </td>
+                      <td>
+                        <div class="ch-detail"><b>{{ entry.fields.product_char_ch }}</b></div>
+                        <div class="en-detail"><b>{{ entry.fields.product_char_en }}</b></div>
+                      </td>
+                    </tr>
+                  </thead>
+                </table>
+                <a href="?product_detail={{ entry.fields.product_name_en }}"><button type="button" class="btn btn-info btn-prod">更多信息 (More Info)</button></a>
               </div>
-            </div>
+              <hr class="footer-divider"></hr>
             {% endfor %}
           {% else %}
             <div class = "jumbotron">
@@ -129,19 +175,20 @@
               </h4>
             </div> 
           {% endif %}
+          <br></br>
           {% block pagination %}
             <center>
-            <ul class="pagination" method = "get" name = "page">
-              {% if blog_topic_list.has_previous %}
-                      <li><a href="?page={{ blog_topic_list.previous_page_number }}" class = "able">&laquo;</a></li>
-                    {% else %}
-                      <li class = "disable"><a href="#">&laquo;</a></li>
-                  {% endif %}
+            <ul class="pagination" method="get" name="page">
+              {% if items_list.has_previous %}
+                  <li><a href="?page={{ items_list.previous_page_number }}" class = "able">&laquo;</a></li>
+              {% else %}
+                  <li class = "disable"><a href="#">&laquo;</a></li>
+              {% endif %}
 
-                <li class="active"><a href=""> Current_Page {{ blog_topic_list.number }} | {{ blog_topic_list.paginator.num_pages }} </a></li>
+                <li class="active"><a href=""> Current_Page {{ items_list.number }} | {{ items_list.paginator.num_pages }} </a></li>
 
-                  {% if blog_topic_list.has_next %}
-                    <li><a href="?page={{ blog_topic_list.next_page_number }}" class = "able">&raquo;</a></li>
+                  {% if items_list.has_next %}
+                    <li><a href="?page={{ items_list.next_page_number }}" class = "able">&raquo;</a></li>
                   {% else %}
                     <li class = "disable"><a href="">&raquo;</a></li>
                   {% endif %}
