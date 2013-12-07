@@ -21,7 +21,7 @@
                   </a>
                 </li>
 
-                <li class="nav active">
+                <li class="nav">
                   <a href="{% url 'product_exhibition.views.perspective' %}">
                     <ul class="nav-ch-en">
                       <li>
@@ -31,7 +31,6 @@
                     </ul>
                   </a>
                 </li>
-
                 <!-- <li class = "divider-vertical"></li> -->
                 <li class="nav">
                   <a href="{% url 'product_exhibition.views.product_list' %}">
@@ -59,7 +58,6 @@
                 <li class="nav">
                   <form class="form-inline">
                     <div class="form-group">
-                      
                         <input type="text" class="form-control" placeholder="Search - 搜索">
                       </div>
                     </div>
@@ -75,16 +73,64 @@
 {% endblock %}
 <br></br>
 {% block mainbody %}
-	<ul class="ul-perspective">
-		<li>
-			<h3 class="perspective"> 我们坚信：<h3>
-		</li>
+<div class="col-md-12 container">
+  <div class="col-md-6 col-sm-12">
+      <div class="span5 offset1 video">
+          <img class="img-polaroid" src = "http://placehold.it/480x300">
+      </div>
+  </div> <!-- col-md-6 -->
+  <div class="col-md-6 table-info-detail">
+    <table>
+      <tr>
+        <td><h4>产品名称 - Product Name: </h4></td>
+        <td class="table-info"><h4>{{ product_obj.product_name_ch }}</h4></td>
+      </tr>
+      <tr>
+        <td><h4>价格 - Price: </h4></td>
+        <td class="table-info"><h4> ¥ {{ product_obj.product_price_en }}</h4></td>
+      </tr>
+      <tr>
+        <td><h4>产品品牌 - Product Brand: </h4></td>
+        <td class="table-info"><h4> {{ product_obj.product_brand_ch }}</h4></td>
+      </tr>
+      <tr>
+        <td><h4>产品尺寸 - Product Size: </h4></td>
+        <td class="table-info"><h4> {{ product_obj.product_size_ch }}</h4></td>
+      </tr>
+      <tr>
+        <td><h4>产品特性 - Product Characteristic: </h4></td>
+        <td class="table-info"><h4> {{ product_obj.product_char_ch }}</h4></td>
+      </tr>
+      <tr>
+        <td><h4>产品种类 - Product Category: </h4></td>
+        <td class="table-info"><h4> {{ product_obj.product_category_en }}</h4></td>
+      </tr>
+    </table>
+  </div><!-- col-md-6 -->
+</div> <!-- col-md-12 -->
+<br></br>
+<div class="col-md-12 container">
+  <div class="col-md-6">
+    <table>
+      <tr>
+        <td><h4>工作环境 - Work Environment: </h4></td>
+        <td class="table-info"><h4>{{ product_obj.work_environment_ch }}</h4></td>
+      </tr>
+      <tr>
+        <td><h4>产品材料 - Product Component: </h4></td>
+        <td class="table-info"><h4> {{ product_obj.material_ch }}</h4></td>
+      </tr>
+      <tr>
+        <td><h4>额外说明 - Extra Note: </h4></td>
+        <td class="table-info"><h4 style="color: #6BE566;"> {{ product_obj.detail_ch }}</h4></td>
+      </tr>
+    </table>
+  </div><!-- col-md-6 -->
+  <div class="col-md-6 col-sm-12">
+      <div class="span5 offset1 video">
+          <img class="img-polaroid" src = "http://placehold.it/480x300">
+      </div>
+  </div> <!-- col-md-6 -->
+</div>
 
-		<div class="well well-lg">
-			<h2> “ 物竞天择 适者生存 ”</h2>
-			<h3> “ It is not the strongest of the species that survie, </h3>
-			<h3> But the one most adaptable to change. ”</h3>
-			<h3 class = "perspective-name"> -- Thomas Huxley (1825 - 1895) <h3>
-		</div>
-	</ul>
 {% endblock %}

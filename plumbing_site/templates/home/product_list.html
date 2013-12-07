@@ -46,7 +46,7 @@
 
                 <!-- <li class = "divider-vertical"></li> -->
                 <li class="nav">
-                  <a href = "#">
+                  <a href = "/home_contact/">
                       <ul class="nav-ch-en">
                         <li>
                           <h3 class= "ch">联系我们</h3>
@@ -158,7 +158,7 @@
                     </tr>
                   </thead>
                 </table>
-                <a href="?product_detail={{ entry.fields.product_name_en }}"><button type="button" class="btn btn-info btn-prod">更多信息 (More Info)</button></a>
+                <a href="{% url 'product_exhibition.views.product_detail' slug=entry.fields.slug %}"><button type="button" class="btn btn-info btn-prod">更多信息 (More Info)</button></a>
               </div>
               <hr class="footer-divider"></hr>
             {% endfor %}
@@ -190,7 +190,7 @@
                   {% if items_list.has_next %}
                     <li><a href="?page={{ items_list.next_page_number }}" class = "able">&raquo;</a></li>
                   {% else %}
-                    <li class = "disable"><a href="">&raquo;</a></li>
+                    <li class="disable"><a href="">&raquo;</a></li>
                   {% endif %}
               </ul>
               </center>

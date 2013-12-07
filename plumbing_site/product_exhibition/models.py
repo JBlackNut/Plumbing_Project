@@ -8,6 +8,8 @@ class Author(models.Model):
 	"""
 	first_name 	= models.CharField(max_length = 20)
 	second_name = models.CharField(max_length = 20)
+	name_eng 	= models.CharField(max_length = 15, default = "None")
+	job_profile = models.CharField(max_length = 50, default = "None")
 	email 		= models.EmailField(max_length = 75)
 	address		= models.CharField(max_length = 50)
 	description = models.TextField()
@@ -75,6 +77,7 @@ class Production(models.Model):
 	"""
 	product_name_en	 	= models.CharField(max_length = 80, unique = True, default = "None")
 	product_name_ch	 	= models.CharField(max_length = 50, unique = True, default = "None")
+	slug 				= models.SlugField(unique = True, default ="None")
 	product_brand_en 	= models.CharField(max_length = 80, default = "None")
 	product_brand_ch 	= models.CharField(max_length = 50, default = "None")
 	material_en 		= models.CharField(max_length = 80, default = "None")
@@ -92,7 +95,7 @@ class Production(models.Model):
 	product_price_en	= models.CharField(max_length = 100, default = "None")
 	product_category_en = models.ForeignKey(Category)
 	product_img			= models.ImageField(upload_to = "pic_folder/", default = "pic_folder/default_image.jpg") # this still need for modifying
-	product_size_img	= None
+	product_size_img	= models.ImageField(upload_to = "pic_folder/", default = "pic_folder/default_image.jpg")
 
 	def __unicode__(self):
 		"""

@@ -272,12 +272,78 @@
         text-align: right;
       }
       hr.footer-divider{
+        padding-top: 20px;
         width: 90%;
       }
       button.btn-prod{
         text-align: right;
         margin-top: 10px;
         margin-left: 380px;
+      }
+      .panel-body{
+        padding-left: 0px;
+      }
+      .personal-profile{
+        margin-left: 0px;
+        height: auto;
+        display: inline-block;
+        float: left;
+        padding-left: 0px;
+        text-align: left;
+      }
+      .profile-name{
+        margin-left: 20px;
+        padding-left: 0px;
+        display: inline-block;
+      }
+      h4.profile-detail{
+        color: black;
+      }
+      .profile-tab{
+        margin-left: 18px;
+      }
+      .profile-line{
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+      .profile-font{
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px; 
+      }
+      .row-fluid{
+        margin-top: 0px;
+        padding-top: 0px;
+      }
+      .table-info{
+        margin-left: 10px;
+        padding-left: 20px;
+        color: black;
+      }
+      .table-info-detail{
+        margin-left: 0px;
+        padding-left: 0px;
+      }
+      p.fqa-info{
+        margin-left: 10px;
+        padding-left: 10px;
+      }
+      h3.font-fqa{
+        color: black;
+      }
+      h4.panel-title{
+        color: #64AFE1;
+      }
+      img.img-polaroid{
+        margin-left: 0px;
+        padding-left: 0px;
+      }
+      .video{
+        margin-left: 0px;
+        padding-left: 0px;
       }
     </style>
   </head>
@@ -328,7 +394,7 @@
 
                 <!-- <li class = "divider-vertical"></li> -->
                 <li class="nav">
-                  <a href = "#">
+                  <a href = "/home_contact/">
                       <ul class="nav-ch-en">
                         <li>
                           <h3 class= "ch">联系我们</h3>
@@ -443,7 +509,66 @@
         </div> <!-- row -->
       </div> <!-- another item --> 
     {% endblock %}
-  </body>
+    <br></br>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-10">
+    <p><h3 class="font-fqa">FQA</h3></p>
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              What does FQA stand for?
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <p class="fqa-info"> Frequently Asked Question. </p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              What's a Frequently Asked Question?
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p class="fqa-info">A question which is commonly asked by users. </p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+              Collapsible Group Item #3
+            </a>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+          <div class="panel-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div> -->
+      </div> <!-- panel -->
+    </div> <!-- accordion -->
+  </div> <!-- col-md-10 -->
+  <div class="col-md-1">
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+  </div>
+</body>
+
   <footer>
       <hr class="footer-divider"></hr>
       <center><p><h6 class="copyright">&copy; 版权所有权  Bitstarter Company 2013</h6></p></center>

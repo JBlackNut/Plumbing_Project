@@ -1,9 +1,10 @@
-from models import Production, Elementary, Category, New
+from models import Production, Elementary, Category, New, Author
 from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import redirect, render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.core import serializers
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.urlresolvers import reverse
 
 def product_list(request):
 	"""
@@ -14,7 +15,6 @@ def product_list(request):
 	if page == None: page = 1
 	if topic == None: topic = "None"
 	product_list = serializers.serialize("python", Production.objects.filter(product_category_en = Category.objects.filter(name_en = topic)))
-	print page
 	if len(product_list) == 0:	contacts = None
 	else:	
 		paginator = Paginator(product_list, 10)
@@ -33,6 +33,25 @@ def product_list(request):
 				'objects': data,
 				'items_list': None,
 			}))
+
+def product_detail(request, slug):
+	"""
+	"""
+	product_obj = Production.objects.filter(slug = slug)
+	print dir(product_obj), product_obj.values()[0]
+	return render_to_response('home/product_detail.html', context_instance = RequestContext(request,{
+		"product_obj": product_obj.values()[0],
+		}))
+
+def home_contact(request):
+	"""
+	"""
+	author_list = Author.objects.all()
+	print author_list, "----------------- # --------------"
+	return render_to_response('home/contacts.html', context_instance = RequestContext(request,{
+		'author_list': author_list,
+		'a_list': range(len(author_list)),
+		}))
 
 def home_page(request):
 	"""

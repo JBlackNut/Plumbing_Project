@@ -21,7 +21,7 @@
                   </a>
                 </li>
 
-                <li class="nav active">
+                <li class="nav">
                   <a href="{% url 'product_exhibition.views.perspective' %}">
                     <ul class="nav-ch-en">
                       <li>
@@ -31,7 +31,6 @@
                     </ul>
                   </a>
                 </li>
-
                 <!-- <li class = "divider-vertical"></li> -->
                 <li class="nav">
                   <a href="{% url 'product_exhibition.views.product_list' %}">
@@ -45,8 +44,8 @@
                 </li>
 
                 <!-- <li class = "divider-vertical"></li> -->
-                <li class="nav">
-                  <a href="/home_contact/">
+                <li class="nav active">
+                  <a href = "#">
                       <ul class="nav-ch-en">
                         <li>
                           <h3 class= "ch">联系我们</h3>
@@ -59,7 +58,6 @@
                 <li class="nav">
                   <form class="form-inline">
                     <div class="form-group">
-                      
                         <input type="text" class="form-control" placeholder="Search - 搜索">
                       </div>
                     </div>
@@ -75,16 +73,44 @@
 {% endblock %}
 <br></br>
 {% block mainbody %}
-	<ul class="ul-perspective">
-		<li>
-			<h3 class="perspective"> 我们坚信：<h3>
-		</li>
-
-		<div class="well well-lg">
-			<h2> “ 物竞天择 适者生存 ”</h2>
-			<h3> “ It is not the strongest of the species that survie, </h3>
-			<h3> But the one most adaptable to change. ”</h3>
-			<h3 class = "perspective-name"> -- Thomas Huxley (1825 - 1895) <h3>
-		</div>
-	</ul>
+<div class = "container">
+    {% if author_list %}
+      {% for entry in author_list %}
+          <div class = "col-md-4 col-sm-4">
+            <img alt="" class="img-circle img-responsive" src="/site_media/{{ entry.profile_img.name }}">
+          </div>
+          <div class = "col-md-8 col-sm-8">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h2 class="panel-title">个人信息 - Personal Information</h2>
+              </div>
+              <div class="panel-body">
+                  <table class="profile-tab">
+                    <tr>
+                      <td class="profile-line"><h4 class="profile-font">姓名 - Name:</h4></td>
+                      <td class="profile-line"><h4 class="profile-detail"><b>{{ entry.second_name }} {{ entry.first_name }}</b></h4></td>
+                    </tr>
+                    <tr>
+                      <td class="profile-line"><h4 class="profile-font">英文名 - Tag:</h4></td>
+                      <td class="profile-line"><h4 class="profile-detail"><b>{{ entry.name_eng }}</b></h4></td>
+                    </tr>
+                    <tr>
+                      <td class="profile-line"><h4 class="profile-font">职位 - Title：</h4></td>
+                      <td class="profile-line"><h4 class="profile-detail"><b>{{ entry.job_profile }}</b></h4></td>
+                    </tr>
+                    <tr>
+                      <td class="profile-line"><h4 class="profile-font">邮箱 - E-mail：</h4></td>
+                      <td class="profile-line"><h4 class="profile-detail"><b>{{ entry.email }}</b></h4></td>
+                    </tr>
+                    <tr>
+                      <td class="profile-line"><h4 class="profile-font">移动电话 - Mobile Phone：</h4></td>
+                      <td class="profile-line"><h4 class="profile-detail"><b>{{ entry.mobile_phone }}</b></h4></td>
+                    </tr>
+                  </table>
+              </div> <!-- panel-body -->
+            </div>  <!-- panel panel-info -->
+          </div>
+      {% endfor%}
+    {% endif %}
+</div>
 {% endblock %}
